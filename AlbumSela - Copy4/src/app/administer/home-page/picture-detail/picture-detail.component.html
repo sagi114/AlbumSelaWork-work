@@ -1,0 +1,56 @@
+<h2>picture name:</h2>
+<h2>{{picturName}}</h2>
+<div class="input-group mb-3">
+  <input type="text" class="form-control"  [(ngModel)]="picturName" placeholder="Enter new pictur name">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" (click)="changeName()">Submit</button>
+  </div>
+</div>
+
+<img width="80%" src="{{getPick()}}">
+<div>
+<!-- <div class="custom-control custom-switch"> -->
+ <span (click)="changeFavoriteClick()" *ngIf="!Favorite" class="material-icons hartIcon">
+   favorite_border
+  </span>
+  <span (click)="changeFavoriteClick()" *ngIf="Favorite" class="material-icons hartIcon">
+    favorite
+  </span>
+  <span>Favorite: {{Favorite}}</span>
+    
+  </div>
+  <span (click)="changePrivateModeClick()" *ngIf="!privateMode" class="material-icons">
+    lock_open
+    </span>
+    <span (click)="changePrivateModeClick()" *ngIf="privateMode" class="material-icons">
+      lock
+      </span>
+      <span>Private mode: {{privateMode}}</span>
+
+<form [formGroup]="form">
+      <span *ngIf="!chouseLocation" (click)="ShowMap()" class="material-icons">
+        location_off
+        </span>
+        <span *ngIf="chouseLocation" (click)="ShowMap()" class="material-icons">
+          location_on
+          </span>
+          <span>Show map: {{chouseLocation}}</span>
+    <div>
+      <button class="button" (click)="save()">Save infromation</button>
+    </div>
+</form>
+
+
+<div *ngIf="chouseLocation"><app-map-google [lngInput]="locationlng" [latInput]="locationlat" (returnLat)="getlat($event)" (returnLng)="getlng($event)"></app-map-google></div>
+
+
+<link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet" />
+
+
+<form #form='ngForm' (ngSubmit)="onSubmit(form)">
+  <div class="form-group"> 
+    <div>{{CatagoryListString}}</div>
+      <ejs-multiselect id='localData' name='name'  #local='ngModel' [(value)]='value'[(ngModel)]='value' [dataSource]='Catagorys' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect>
+      <button class="button" type="submit" >Submit</button>
+  </div>
+</form>

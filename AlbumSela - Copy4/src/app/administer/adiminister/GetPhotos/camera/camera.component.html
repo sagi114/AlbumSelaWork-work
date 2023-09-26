@@ -1,0 +1,22 @@
+<div id="app" [hidden]="!ShowCamera">
+    <div><video #video id="video" width="640" height="480" autoplay></video></div>
+    <div><button id="snap" (click)="onTakingAPictur()">Snap Photo</button></div>
+    <!-- onTakingAPictur() capture()-->
+    <canvas #canvas id="canvas" width="640" height="480"></canvas>
+  </div>
+  
+  <input
+    #imageInput
+    hidden="true"
+    type="file"
+    onclick="this.value=null"
+    (change)="onFileSelected($event)"
+    accept="image/*"
+  />
+
+  <div class="webcam-image" *ngIf="!ShowCamera">
+    <button class="btnTryAgain"  (click)="TryAgian()">Try again</button>
+    <img id="img" class="picturImg" [src]="pictur" />
+    <button (click)="capture()">Keep</button>
+  </div>
+  

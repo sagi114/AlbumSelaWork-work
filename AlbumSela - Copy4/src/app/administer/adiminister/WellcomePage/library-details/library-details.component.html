@@ -1,0 +1,59 @@
+<form class="form-group" #loginForm="ngForm"  >
+    <div>
+     <label class="control-label">
+       Library name:
+       <input type="text"
+       class="form-control"
+       placeholder="Enter library name"
+       name="libraryName"
+       [(ngModel)]="newDetails.libraryName"
+       #LibraryNameRef="ngModel"
+       required [minlength]="4"/>
+     </label>
+   </div>
+   <div *ngIf="LibraryNameRef.touched && !LibraryNameRef.valid" class="error">
+     <div *ngIf="LibraryNameRef.errors?.required">
+       This field is required.
+     </div>
+     <div *ngIf="LibraryNameRef.errors?.minlength">
+       Username must be at least 4 characters.
+     </div>
+   </div>
+   <div>
+     <label class="control-label">
+       discription:
+       <input type="text" class="form-control" placeholder="Enter discription"
+              name="discription" 
+              [(ngModel)]="newDetails.Details" 
+              #discriptionRef = "ngModel" />
+     </label>
+   </div> 
+   <label class="control-label">
+     Private password:
+     <input type="password"
+     class="form-control"
+     placeholder="Enter password for private mode"
+     name="privateMode"
+     [(ngModel)]="newDetails.password"
+     #PasswordRef="ngModel"
+     required [minlength]="4"/>
+   </label>
+   <div *ngIf="PasswordRef.touched && !PasswordRef.valid" class="error">
+     <div *ngIf="PasswordRef.errors?.required">
+       This field is required.
+     </div>
+     <div *ngIf="PasswordRef.errors?.minlength">
+       password must be at least 4 characters.
+     </div>
+   </div>
+   <select class="selectpicker show-tick" #selectRef = "ngModel" [(ngModel)]="newDetails.DefultViewTemplate" name="selectTemplate" required>
+     <option value="null" [disabled]="true">Select a Value</option>
+     <option *ngFor="let Template of templates" [ngValue]="Template" >{{Template.TemplateName}}</option>
+</select>
+<!-- <small *ngIf="(loginForm._submitted && !selectTemplate.valid && !newDetails.DefultViewTemplate) || (!selectTemplate.valid && selectTemplate.dirty) ">Required (Please select country).</small> -->
+<!-- <button  class="btn btn-primary" type="submit">Submit</button> -->
+
+
+<button (click)="onsubmit(newDetails)" [disabled]="checkValidTemplate(loginForm.form.invalid)" >Submit</button>
+
+ </form>

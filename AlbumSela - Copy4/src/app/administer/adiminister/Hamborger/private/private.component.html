@@ -1,0 +1,18 @@
+<form >
+    <!-- <div>
+        <input #inputPassword type="password"/>
+    </div>
+    <div>
+        <button (click)="checkIfPasswordIsTrue(inputPassword.value)">Enter private password</button>
+    </div> -->
+    <div class="input-group mb-3">
+        <input type="password" class="form-control"  #inputPassword placeholder="Enter Password">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" (click)="checkIfPasswordIsTrue(inputPassword.value)">Enter private password</button>
+        </div>
+      </div>
+      <h2>
+        {{PrivateMessege}}
+      </h2>
+    
+</form>

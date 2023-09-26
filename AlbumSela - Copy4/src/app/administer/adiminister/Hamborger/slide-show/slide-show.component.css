@@ -1,0 +1,16 @@
+.slide-show-container {
+    background-color : black;
+    color : white;
+    position : relative;
+    /* width : 100vw;
+    height : 95vw; */
+    width : 500px;
+    height : 500px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+img{
+    width : 500px;
+    height : 500px;
+}

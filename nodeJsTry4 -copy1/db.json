@@ -1,0 +1,30 @@
+{
+  "posts": [
+    {
+      "id": 0,
+      "information": {
+        "libraryName": "sagis lib",
+        "Details": "best lib ever",
+        "DefultViewTemplate": {
+          "TemplateName": "Grid",
+          "id": 2
+        },
+        "password": "9933807",
+        "privateMode": false
+      },
+      "inromation": {
+        "libraryName": "sagis lib",
+        "Details": "best lib ever",
+        "DefultViewTemplate": {
+          "TemplateName": "Grid",
+          "id": 2
+        },
+        "password": "9933807",
+        "privateMode": false
+      }
+    }
+  ],
+  "user": {
+    "name": "typicode"
+  }
+}

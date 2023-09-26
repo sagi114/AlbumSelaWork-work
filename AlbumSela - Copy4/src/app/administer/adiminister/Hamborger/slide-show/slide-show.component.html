@@ -1,0 +1,8 @@
+<button (click)="returnToMainPage()">Return to main page</button>
+<div class="slide-show-container" mouseWheel (mouseWheelUp)="onMouseWheelUpFunc()"
+  (mouseWheelDown)="onMouseWheelDownFunc()">
+  <scroll-slideshow-item  *ngFor="let slide of slides ; let i = index">
+    <!-- {{i + 1 }}. {{slide}} -->
+    <img src="{{slide}}"/>
+  </scroll-slideshow-item>
+</div>

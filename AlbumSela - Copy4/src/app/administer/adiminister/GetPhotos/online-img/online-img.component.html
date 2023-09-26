@@ -1,0 +1,28 @@
+<div class="card-header main-search">    
+    <div class="row">    
+      <div class="col-12 col-md-3 col-xl-3">    
+        <input [(ngModel)]="searchData" class="AutoFocus form-control" placeholder="Type something..." type="text">    
+      </div>    
+      <div class="col-12 col-md-3 col-xl-3">    
+        <input name="deliveryNumber" [(ngModel)]="perPage" class="AutoFocus form-control" placeholder="Amount of pictures"    
+          type="text">    
+      </div>    
+      <div class="ml-auto">    
+        <input type="button" (click)="search()" value="Search" class="btn btn-primary search-btn">    
+      </div>    
+    </div>    
+  </div>    
+  <div class="container">    
+    <div class="row">    
+      <div *ngFor="let pic of photos;let i=index" class="col-sm-4">    
+        <div style="margin-top: 10px;" class="card">    
+          <img id="img-{{i}}" class="card-img-top" [src]="pic.src.landscape" alt="Card image cap">    
+          <div class="card-body">    
+            <h5 class="card-title">Get Image</h5> 
+            <input type="button" (click)="loadPicturToServer(pic.src.landscape)" value="Upload" class="btn btn-primary search-btn">
+           </div>    
+        </div>    
+      </div>    
+    </div>    
+  </div> 
+  <!-- <canvas hidden #canvas id="canvas" width="640" height="480"></canvas>   -->

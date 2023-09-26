@@ -1,0 +1,52 @@
+{
+  "CatagoryDb": [
+    {
+      "CatagoryName": "family",
+      "id": 0
+    },
+    {
+      "CatagoryName": "funny",
+      "id": 1
+    },
+    {
+      "CatagoryName": "stupid",
+      "id": 2
+    },
+    {
+      "CatagoryName": "History",
+      "id": 3
+    },
+    {
+      "CatagoryName": "other",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "CatagoryName": "Places"
+    },
+    {
+      "id": 6,
+      "CatagoryName": "interesting"
+    },
+    {
+      "id": 7,
+      "CatagoryName": "animals"
+    },
+    {
+      "id": 8,
+      "CatagoryName": "people"
+    },
+    {
+      "id": 9,
+      "CatagoryName": "cars"
+    },
+    {
+      "id": 10,
+      "CatagoryName": "food"
+    },
+    {
+      "id": 11,
+      "CatagoryName": "flowers"
+    }
+  ]
+}

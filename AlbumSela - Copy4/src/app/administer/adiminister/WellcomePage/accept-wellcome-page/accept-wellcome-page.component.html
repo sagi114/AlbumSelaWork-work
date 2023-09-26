@@ -1,0 +1,15 @@
+<form>
+<input class="form-check-input" type="checkbox" [(ngModel)]="firstBool" id="CamraAccept" name="CamraAccept">
+  <label  for="CamraAccept">Allow device camra</label><br>
+  <input class="form-check-input" type="checkbox"  [(ngModel)]="SecBool" id="LocationAccept" name="LocationAccept">
+  <label for="LocationAccept">Allow device location</label><br>
+  <input class="form-check-input" type="checkbox" [(ngModel)]="Thirdbool" id="AllowPrivate" name="AllowPrivate">
+  <label for="male">Allow private mode</label><br>
+  <!-- <button class="privateMode">Private mode password</button> -->
+  <button (click)="moveToNextPage()" class="btnNaviget">Next</button>
+
+  <div class="alert">{{str}}</div>
+</form>
+
+
+

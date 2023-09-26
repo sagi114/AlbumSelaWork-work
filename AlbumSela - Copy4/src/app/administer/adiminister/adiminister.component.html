@@ -1,0 +1,117 @@
+
+<!--Navbar-->
+<div class="nadvarDiv">
+<nav class="navbar navbar-expand-lg  " [ngClass]="{'navbar-dark bg-primary':!lightColor }">
+  <a class="navbar-brand" href="#"><h1 class="text-uppercase font-weight-bold font-italic AppName ">Sela Albumes</h1></a>
+  <!-- <a class="navbar-brand" href="#"><h1 class="text-uppercase font-weight-bold font-italic AppName "><img src="../../../assets/AlbumSela.png"></h1></a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="iconImage" src="../../../assets/Hamburger_icon.svg.png">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <button (click)="changeLightColor()" class="btnHamb dropdown-item">
+            Application theme-light / dark
+          </button>
+          <div class="dropdown-divider"></div>
+          <button (click)="changePrivateMode()" class="btnHamb dropdown-item">
+            <div>Enter /exist private mode</div>
+            <div>private mode is on: {{privateMode}}</div>
+          </button>
+          <div class="dropdown-divider"></div>
+          <button (click)="addCatagory()" class="btnHamb dropdown-item">
+            Edit categories
+          </button>
+          <div  class="dropdown-divider"></div>
+          <button (click)="NavigateToAboutPage()" class="btnHamb dropdown-item">
+            About
+          </button>
+          <div class="dropdown-divider"></div>
+          <button (click)="exitApplicaton()" class="btnHamb dropdown-item">
+            Exit application
+          </button>
+          <!-- <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="iconImage" src="../../../assets/avatar2.png">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <button (click)="changeShowOfPictures()" class="btnHamb dropdown-item">
+            Show images on list/ table
+          </button>
+          <div class="dropdown-divider"></div>
+          <button (click)="GoToSlideShow()" class="btnHamb dropdown-item">
+            start Random Slide Show
+          </button>
+          <div class="dropdown-divider"></div>
+          <button (click)="switchModeToObserve()" class="btnHamb dropdown-item">
+            <div>Switch mode to import/</div>
+            <div>observe image</div>
+          </button>
+          <div class="dropdown-divider"></div>
+          <button (click)="getPhotos()" class="btnHamb dropdown-item" disabled>
+            Share images
+          </button>
+        
+        <div class="dropdown-divider"></div>
+          <button  class="btnHamb dropdown-item" disabled>
+            Synce with clodue storege
+          </button>
+        </div>
+      </li>
+    </ul>
+    <form  class="form-inline my-2 my-lg-0">
+      <!-- <label for="inputsearch">Search by name:</label> -->
+      <input name="inputsearch" [ngModel]="SearchWord" (ngModelChange)="searchFunc($event)" class="form-control mr-sm-2" type="search" placeholder="Search by name" aria-label="Search">
+    </form>
+    <form  class="form-inline my-2 my-lg-0">
+      <!-- <label for="inputsearch">Search by Catagory:</label> -->
+      <input name="Catagorysearch" [ngModel]="SearchWordCatagory" (ngModelChange)="searchFuncCatagory($event)" class="form-control mr-sm-2" type="search" placeholder="Search by Catagory" aria-label="Search">
+     
+    </form>
+  </div>
+</nav>
+</div>
+<div class="container card   " [ngClass]="{'bg-primary mb-3 border-primary mb-3':!lightColor }">
+      <div *ngIf="ShowHomePage">
+          <app-home-page [privateMode]="privateMode" [pictureImages]="picImages" [pictureDetails]="pictureDetails" [isList]="isList" [Temp]="Temp" [library]="library" (returnPicturesNumber)="goToPicturesDetail($event)"></app-home-page>
+      </div>
+      <div *ngIf="ShowPageDetails"> 
+          <app-picture-detail [num]="ShowingPicNum" (Finish)="goToHomePage($event)"></app-picture-detail>
+      </div>
+      <div *ngIf="ShowHelloClientWellcomePage">
+          <app-hello-customer-page (Finish)="goToAccseptPage($event)"></app-hello-customer-page>
+      </div>
+      <div *ngIf="ShowAccseptRequires">
+        <app-accept-wellcome-page (Finish)="GoToCreateLibrary($event)"></app-accept-wellcome-page>
+    </div>
+    <div *ngIf="ShowCreatelibrary">
+        <app-library-details (Finish)="createeLibrary($event)"></app-library-details>
+    </div>
+    <div *ngIf="ShowPrivate">
+        <app-private (Finish)="returnOnPrivateModeToHomePage($event)"></app-private>
+    </div>
+    <div *ngIf="ShowCatagoryEdit">
+        <app-catagorys (Finish)="goToHomePage($event)"></app-catagorys>
+    </div>
+    <!-- <div *ngIf="ShowSlideShow">
+        <app-slide-show [PrivateMode]="privateMode" (Finish)="goToHomePage($event)"></app-slide-show>
+    </div> -->
+    <div *ngIf="ShowSlideShow">
+      <app-slide-show-new [PrivateMode]="privateMode" (Finish)="goToHomePage($event)"></app-slide-show-new>
+  </div>
+    <div *ngIf="ShowGetPictures">
+        <app-all-getting-images (Finish)="goToHomePage($event)"></app-all-getting-images>
+    </div>
+  </div>
+  <div *ngIf="privateMode">
+    <img class="iconLock" src="../../../assets/lock.webp">
+  </div>

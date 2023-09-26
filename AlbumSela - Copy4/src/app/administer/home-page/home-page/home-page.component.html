@@ -1,0 +1,25 @@
+<p *ngIf="isList">Album as a list</p>
+<p *ngIf="isList===false">Album as a Grid</p>
+
+<div [ngClass]="{'row':!isList }">    
+    <div *ngFor='let pic of pictureImages;let indexOfelement=index;' [ngClass]="{'col-sm-4':!isList }" > 
+        <div style="margin-top: 10px;" class="card" *ngIf="!privateMode&&ReturnIfPicturIsPrivate(indexOfelement)">
+            <img class="img card-body" sty src="../../../../assets/private.png"> 
+        </div>
+        <div  *ngIf="privateMode||!ReturnIfPicturIsPrivate(indexOfelement)">
+        <div [ngClass]="{'ShowListImg':isList }">
+            <div style="margin-top: 10px;" [ngClass]="{'card-list':isList }" class="card" > 
+                <img  class="img"  src="{{pic}}">  
+                <div  class="card-body">    
+                  <h5 class="card-title">{{getPicturName(indexOfelement)}}</h5> 
+                  <div class="card-title " *ngIf="getPicturFavorite(indexOfelement)"><span>Image is favorite-</span><img class="img-favorite" src="../../../../assets/Favorite-icon.png"></div>
+                  <div class="card-title " *ngIf="getPicturIsPrivate(indexOfelement)"><span>Image is Private-</span><img class="img-favorite" src="../../../../assets/lock.webp"></div>
+                  <div class="card-title" *ngIf="checkIfTHereIsLocation(indexOfelement)"><span>{{getLocation(indexOfelement)}}</span><img  class="img-favorite" src="../../../../assets/22-226826_ort-google-map-icon-png.png"></div>
+                  <input type="button" (click)="GetToPicturesPage(getPicturesId(indexOfelement))" value="Update" class="btn btn-primary search-btn">
+                 </div>    
+              </div>    
+        </div> 
+    </div> 
+    </div>   
+  </div>    
+

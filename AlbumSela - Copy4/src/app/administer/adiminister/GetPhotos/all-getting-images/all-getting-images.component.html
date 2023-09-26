@@ -1,0 +1,8 @@
+<button (click)="returnToMainPage()">Return to main page</button>
+<button (click)="showCameraFunc()">Camera</button>
+<button (click)="showWebPicsFunc()">Upload</button>
+<button (click)="showUploadFunc()">Get From web</button>
+<div *ngIf="showCameraComponent"><app-camera></app-camera></div>
+<div *ngIf="showWebPicturesComponent"><app-local-machine></app-local-machine></div>
+<div *ngIf="showUploadComponent"><app-online-img></app-online-img></div>
+

@@ -1,0 +1,11 @@
+<form>
+    <div>
+        Enter Catagory:
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" #CatName placeholder="Enter Catagory">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" (click)="AddCat(CatName.value)">Add</button>
+        </div>
+      </div>
+</form>

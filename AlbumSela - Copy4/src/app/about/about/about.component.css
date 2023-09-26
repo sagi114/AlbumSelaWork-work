@@ -1,0 +1,16 @@
+.container{
+    background-color:plum;
+    width: 80%;
+    height: 80%;
+    margin-top: 5%;
+}
+.imgCreater{
+    margin-left: 40%;
+    margin-top: 5%;
+    border: black 5px;
+    -ms-transform: skewY(20deg); /* IE 9 */
+  transform: skewY(20deg);
+}
+.information{
+    margin-top: -100px;
+}
